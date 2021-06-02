@@ -10,3 +10,11 @@ juice.juiceResources(
     fs.writeFileSync("dist/index.html", html);
   }
 );
+
+fs.readdir("dist", (err, files) => {
+  const removables = ["css", "map"];
+  files.forEach((file) => {
+    let arr = file.split(".");
+    if (removables.includes(arr[arr.length - 1])) fs.unlinkSync("dist/" + file);
+  });
+});
