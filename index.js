@@ -5,7 +5,7 @@ const originalSource = fs.readFileSync(__dirname + "/dist/index.html", "utf8");
 
 juice.juiceResources(
   originalSource,
-  { webResources: { relativeTo: "dist" } },
+  { webResources: { relativeTo: "dist", images: false } },
   (err, html) => {
     fs.writeFileSync("dist/index.html", html);
   }
